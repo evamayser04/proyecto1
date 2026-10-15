@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class RegisterView extends StatelessWidget {
 
-  TextEditingController userController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
-  TextEditingController repasswordController = new TextEditingController();
+  final TextEditingController userController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
+  final TextEditingController repasswordController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
