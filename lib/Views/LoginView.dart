@@ -3,8 +3,8 @@ import 'package:flutter/material.dart';
 
 class Loginview extends StatelessWidget {
 
-  TextEditingController userController = new TextEditingController();
-  TextEditingController passwordController = new TextEditingController();
+  final TextEditingController userController = new TextEditingController();
+  final TextEditingController passwordController = new TextEditingController();
 
   @override
   Widget build(BuildContext context) {
