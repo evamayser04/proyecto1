@@ -25,7 +25,7 @@ class Loginview extends StatelessWidget {
         obscureText: true,
         controller: passwordController,
         decoration: InputDecoration(hintText: "Contraseña"),
-      )
+      ),
         ]
       )
     );
