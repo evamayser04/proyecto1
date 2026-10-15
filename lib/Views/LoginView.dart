@@ -6,11 +6,6 @@ class Loginview extends StatelessWidget {
   TextEditingController userController = new TextEditingController();
   TextEditingController passwordController = new TextEditingController();
 
-    void funClickLogin() async {
-      String user = userController.text;
-      String pass = passwordController.text;
-    }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
