@@ -31,6 +31,26 @@ class RegisterView extends StatelessWidget {
             controller: repasswordController,
             decoration: InputDecoration(hintText: "Repite la Contraseña"),
           ),
+          Row(
+            children: [
+              TextButton(
+                onPressed: () {
+                  if (passwordController.text != repasswordController.text) {
+                    print("LAS CONTRASEÑAS NO COINCIDEN");
+                  } else {
+                    print("Registro correcto; aquí conectarás Firebase más adelante");
+                  }
+                },
+                child: Text("Aceptar"),
+              ),
+              TextButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                child: Text("Cancelar"),
+              ),
+            ],
+          ),
         ],
       ),
     );

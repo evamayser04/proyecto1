@@ -11,7 +11,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
         title: 'PROYECTO 1',
-        home: RegisterView(),
+        initialRoute: '/loginview',
+        routes: {
+          '/loginview':(context) => LoginView(),
+          '/registerview':(context) => RegisterView(),
+        },
     );
   }
 }
