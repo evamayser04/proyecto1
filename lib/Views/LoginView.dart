@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class LoginView extends StatelessWidget {
 
+  final FirebaseAuth faInstance = FirebaseAuth.instance;
   final TextEditingController userController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
 
@@ -27,7 +29,20 @@ class LoginView extends StatelessWidget {
         decoration: InputDecoration(hintText: "Contraseña"),
       ),
           TextButton(
-            onPressed: () {
+            onPressed: () async{
+              try {
+                await faInstance.signInWithEmailAndPassword(
+                  email: userController.text,
+                  password: passwordController.text,
+                );
+
+                Navigator.pushReplacementNamed(context, '/homeview');
+              } on FirebaseAuthException {
+                ScaffoldMessenger.of(context).showSnackBar(
+                  const SnackBar(content: Text('Correo o contraseña incorrectos')),
+                );
+              }
+
               Navigator.pushReplacementNamed(context, '/homeview');
             },
             child: Text("Login"),
