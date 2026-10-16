@@ -41,10 +41,8 @@ class LoginView extends StatelessWidget {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(content: Text('Correo o contraseña incorrectos')),
                 );
-              }
-
-              Navigator.pushReplacementNamed(context, '/homeview');
-            },
+                }
+              },
             child: Text("Login"),
           ),
           TextButton(
