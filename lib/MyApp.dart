@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:proyecto1/Views/LoginView.dart';
 import 'package:proyecto1/Views/RegisterView.dart';
+import 'package:proyecto1/Views/HomeView.dart';
 
 class MyApp extends StatelessWidget {
 
@@ -15,6 +16,7 @@ class MyApp extends StatelessWidget {
         routes: {
           '/loginview':(context) => LoginView(),
           '/registerview':(context) => RegisterView(),
+          '/homeview' : (context) => const HomeView(),
         },
     );
   }

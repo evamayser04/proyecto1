@@ -28,7 +28,7 @@ class LoginView extends StatelessWidget {
       ),
           TextButton(
             onPressed: () {
-              print("Iniciar sesión");
+              Navigator.pushReplacementNamed(context, '/homeview');
             },
             child: Text("Login"),
           ),
