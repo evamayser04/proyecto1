@@ -38,7 +38,7 @@ class RegisterView extends StatelessWidget {
                   if (passwordController.text != repasswordController.text) {
                     print("LAS CONTRASEÑAS NO COINCIDEN");
                   } else {
-                    print("Registro correcto; aquí conectarás Firebase más adelante");
+                    print("Registro correcto");
                   }
                 },
                 child: Text("Aceptar"),
