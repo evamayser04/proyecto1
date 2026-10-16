@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-class Loginview extends StatelessWidget {
+class LoginView extends StatelessWidget {
 
   final TextEditingController userController = new TextEditingController();
   final TextEditingController passwordController = new TextEditingController();
@@ -26,6 +26,18 @@ class Loginview extends StatelessWidget {
         controller: passwordController,
         decoration: InputDecoration(hintText: "Contraseña"),
       ),
+          TextButton(
+            onPressed: () {
+              print("Iniciar sesión");
+            },
+            child: Text("Login"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.pushNamed(context, '/registerview');
+            },
+            child: Text("Registrarse"),
+          ),
         ]
       )
     );
