@@ -23,7 +23,7 @@ class _SplashViewState extends State<SplashView> {
 
   Future<void> abrirApp() async {
     try {
-      await Future.delayed(const Duration(seconds: 1));
+      await Future.delayed(const Duration(seconds: 3));
       final usuario = FirebaseAuth.instance.currentUser;
       String ruta;
 
