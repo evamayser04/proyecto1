@@ -59,7 +59,7 @@ class RegisterView extends StatelessWidget {
                       await perfiles.doc(usuario.uid).set(
                         Perfil(uid: usuario.uid, email: usuario.email),
                       );
-                      Navigator.pushReplacementNamed(context, '/homeview');
+                      Navigator.pushReplacementNamed(context, '/splashview');
                     } on FirebaseAuthException catch (e) {
                       String mensaje;
 
