@@ -29,7 +29,7 @@ class _HomeViewState extends State<HomeView> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
         Expanded(
-          child: indiceSeleccionado == 1
+          child: indiceSeleccionado == 1 || indiceSeleccionado == 2
               ? StreamBuilder<QuerySnapshot<Perfil>>(
                   stream: streamElementos,
                   builder: (context, snapshot) {
@@ -47,6 +47,29 @@ class _HomeViewState extends State<HomeView> {
 
                     if (documentos.isEmpty) {
                       return const Center(child: Text('No hay elementos'));
+                    }
+
+                    if (indiceSeleccionado == 2) {
+                      return GridView.builder(
+                        gridDelegate:
+                            const SliverGridDelegateWithFixedCrossAxisCount(
+                          crossAxisCount: 2,
+                        ),
+                        itemCount: documentos.length,
+                        itemBuilder: (context, index) {
+                          final elemento = documentos[index].data();
+
+                          return Card(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(elemento.nombre ?? ''),
+                                Text('Edad: ${elemento.edad ?? 0}'),
+                              ],
+                            ),
+                          );
+                        },
+                      );
                     }
 
                     return ListView(
