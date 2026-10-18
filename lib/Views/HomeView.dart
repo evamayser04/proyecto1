@@ -18,7 +18,13 @@ class _HomeViewState extends State<HomeView> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          const Text("HOME"),
+          Text(
+            indiceSeleccionado == 0
+              ? "INICIO"
+            : indiceSeleccionado == 1
+              ? "LISTA"
+              : "CUADRÍCULA",
+          ),
           TextButton(
             onPressed: () async {
               await FirebaseAuth.instance.signOut();
