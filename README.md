@@ -1,17 +1,13 @@
 # proyecto1
 
-proyecto1 de Flutter.
+## Configuración de Firebase
 
-## Getting Started
+La app usa Firebase Authentication y Cloud Firestore. Estos archivos contienen la configuración del proyecto y deben estar en el repositorio:
 
-This project is a starting point for a Flutter application.
+- `lib/firebase_options.dart`: configuración que usa Flutter para conectarse a Firebase.
+- `firebase.json`: configuración del proyecto para las herramientas de Firebase.
+- `android/app/google-services.json`: configuración de la app Android.
 
-A few resources to get you started if this is your first Flutter project:
+No se deben subir claves privadas de cuentas de servicio, contraseñas ni tokens. No son necesarios para ejecutar la app Flutter.
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Para volver a configurar Firebase se utiliza FlutterFire CLI con `flutterfire configure`.
