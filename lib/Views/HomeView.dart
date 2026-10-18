@@ -1,8 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:proyecto1/insLib/BotBarStyle.dart';
 
-class HomeView extends StatelessWidget {
+class HomeView extends StatefulWidget {
   const HomeView({super.key});
+
+  @override
+  State<HomeView> createState() => _HomeViewState();
+}
+
+class _HomeViewState extends State<HomeView> {
+  int indiceSeleccionado = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +27,14 @@ class HomeView extends StatelessWidget {
             child: const Text("Cerrar sesión"),
           ),
         ],
+      ),
+      bottomNavigationBar: BotBarStyle(
+        indiceSeleccionado: indiceSeleccionado,
+        alSeleccionar: (indice) {
+          setState(() {
+            indiceSeleccionado = indice;
+          });
+        },
       ),
     );
   }
