@@ -76,7 +76,11 @@ class _SplashViewState extends State<SplashView> {
                 child: Center(child: Text('No se pudo cargar la imagen')),
               ),
             ),
-            if (error == null) const CircularProgressIndicator(),
+          if (error == null) ...[
+            const CircularProgressIndicator(),
+            const SizedBox(height: 16),
+            const Text('Cargando tu aplicación…'),
+          ],
             if (error != null) ...[
               Text(error!),
               TextButton(onPressed: abrirApp, child: const Text('Reintentar')),
