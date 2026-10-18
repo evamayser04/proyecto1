@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:proyecto1/FbObjects/Perfil.dart';
 
 class RegisterView extends StatelessWidget {
 
@@ -41,11 +43,22 @@ class RegisterView extends StatelessWidget {
                     print("LAS CONTRASEÑAS NO COINCIDEN");
                   } else {
                     try {
-                      await faInstance.createUserWithEmailAndPassword(
+                      final credencial = await faInstance.createUserWithEmailAndPassword(
                         email: userController.text,
                         password: passwordController.text,
                       );
+                      final usuario = credencial.user!;
 
+                      final perfiles = FirebaseFirestore.instance
+                          .collection('Perfiles')
+                          .withConverter<Perfil>(
+                        fromFirestore: Perfil.fromFirestore,
+                        toFirestore: (perfil, _) => perfil.toFirestore(),
+                      );
+
+                      await perfiles.doc(usuario.uid).set(
+                        Perfil(uid: usuario.uid, email: usuario.email),
+                      );
                       Navigator.pushReplacementNamed(context, '/homeview');
                     } on FirebaseAuthException catch (e) {
                       String mensaje;
